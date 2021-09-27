@@ -1,0 +1,25 @@
+<h2>商品一覧</h2>
+
+<div *ngFor="let product of products">
+  <h3>
+    <a [title]="product.name + 'の詳細はこちら'">
+      {{ product.name }}
+    </a>
+  </h3>
+
+  <p>{{ product.price }}</p>
+
+  <p *ngIf="product.description">詳細: {{ product.description }}</p>
+
+  <button (click)="share()">共有</button>
+  <app-product-alerts
+    [name]="product.name"
+    (onNotify)="notify()"
+  ></app-product-alerts>
+</div>
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
